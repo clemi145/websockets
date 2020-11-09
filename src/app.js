@@ -1,11 +1,9 @@
 import { Client } from "@stomp/stompjs";
-import {bindable} from 'aurelia-framework';
+import { bindable } from "aurelia-framework";
 
 export class App {
-  
   constructor() {
     this.isLoggedIn = false;
-    this.user = "";
     this.message = "";
 
     this.client;
@@ -42,6 +40,9 @@ export class App {
   }
 
   connect() {
+    this.user = document.querySelector('#nameInput').value;
+    this.stompConfig.connectHeaders.login = this.user;
+    // console.log(this.user);
     this.client.activate();
     this.isLoggedIn = true;
   }
@@ -52,7 +53,7 @@ export class App {
       return false;
     }
     if (message.length > 0) {
-      const payLoad = {"text": message, "from": user, "timestamp": new Date()};
+      const payLoad = { text: message, from: user, timestamp: new Date() };
 
       this.client.publish({
         destination: "/topic/messages",
@@ -64,7 +65,6 @@ export class App {
   }
 
   displayMessages() {
-    this.messages.forEach(message => console.log(message));
+    this.messages.forEach((message) => console.log(message));
   }
 }
-
