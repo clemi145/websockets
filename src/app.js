@@ -1,13 +1,15 @@
 import { Client } from "@stomp/stompjs";
 
 export class App {
+  user = "";
   constructor() {
-    this.user;
+
+    this.user = "";
 
     this.client;
     this.stompConfig = {
       connectHeaders: {
-        login: this.user,
+        login: App.user,
         passcode: "",
       },
       brokerUrl: "ws://localhost:8080/chat",
@@ -19,10 +21,10 @@ export class App {
       onConnect: (frame) => {
         const subscription = this.client.subscribe(
           "/topic/messages",
-          (message) => {
-            const payload = JSON.parse(message.body);
-            this.displayIncomingMessage(payload.user, payload.message);
-            // console.log(payload.user, payload.message);
+          (response) => {
+            const payload = JSON.parse(response.body);
+            // console.log(payload.from, payload.text, payload.timestamp);
+            this.displayMessages();
           }
         );
       },
@@ -58,7 +60,7 @@ export class App {
     return true;
   }
 
-  displayIncomingMessage(user, message) {
-    console.log(user, )
+  displayMessages() {
+    this.messages.forEach(message => console.log(message));
   }
 }
