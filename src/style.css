@@ -6,11 +6,6 @@ body{
     height: 100vh;
 }
 
-login{
-    font-family: 'Open Sans',
-    sans-serif;
-}
-
 
 .send-bar{
     position: absolute;
@@ -39,6 +34,15 @@ header{
     display: inline-block;
     font-size: 1.6em;
     margin-left: 1em;
+}
+
+.messages-container{
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+}
+
+.message-component{
+    margin: 0 0 2em 0;
 }
 
 .message{

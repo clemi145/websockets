@@ -23,8 +23,8 @@
 
   <div class="container" if.bind="isLoggedIn">
     <div class="row justify-content-md-center">
-      <div class="col-9">
-        <div repeat.for="message of messages">
+      <div class="col-9 messages-container">
+        <div repeat.for="message of messages" class="message-component">
           <message user="${message.from.user}" timestamp="${message.timestamp.toTimeString().split(' ')[0].substring(0, 5)}" message="${message.text}"></message>
         </div>
       </div>
