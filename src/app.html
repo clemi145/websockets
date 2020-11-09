@@ -25,7 +25,7 @@
     <div class="row justify-content-md-center">
       <div class="col-9">
         <div repeat.for="message of messages">
-          <message user="${message.from.user}" timestamp="${message.timestamp}" message="${message.text}"></message>
+          <message user="${message.from.user}" timestamp="${message.timestamp.toTimeString().split(' ')[0].substring(0, 5)}" message="${message.text}"></message>
         </div>
       </div>
     </div>
@@ -35,9 +35,9 @@
         <div class="row justify-content-md-center">
             <div class="col-8 row">
                 <div class="form-group col-9 mb-0">
-                    <input type="text" class="form-control" id="textinput" placeholder="Type your message..." value.bind="textToSend">
+                    <input type="text" class="form-control" id="textinput" placeholder="Type your message..." value.bind="message">
                 </div>
-                <button class="btn btn-primary col-2" click.delegate="publishMessage({user}, 'wdwadwad')">
+                <button class="btn btn-primary col-2" click.delegate="publishMessage(user, message)">
                     <i class="far fa-paper-plane"></i>
                 </button>
             </div>

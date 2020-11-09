@@ -6,12 +6,12 @@ export class App {
   constructor() {
     this.isLoggedIn = false;
     this.user = "";
-    this.textToSend = "";
+    this.message = "";
 
     this.client;
     this.stompConfig = {
       connectHeaders: {
-        login: App.user,
+        login: this.user,
         passcode: "",
       },
       brokerUrl: "ws://localhost:8080/chat",
