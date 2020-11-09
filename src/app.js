@@ -60,6 +60,7 @@ export class App {
       });
       this.messages.push(payLoad);
     }
+    this.message = "";
     return true;
   }
 

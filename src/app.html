@@ -31,9 +31,10 @@
     </div>
   </div>
 
-  <div class="container send-bar col-12" if.bind="isLoggedIn">
-        <div class="row justify-content-md-center">
-            <div class="col-8 row">
+  <div class="send-bar" if.bind="isLoggedIn">
+    <div class="container">
+      <div class="row justify-content-md-center">
+            <div class="col-9 row">
                 <div class="form-group col-9 mb-0">
                     <input type="text" class="form-control" id="textinput" placeholder="Type your message..." value.bind="message">
                 </div>
@@ -42,6 +43,8 @@
                 </button>
             </div>
         </div>
+    </div>
+        
     </div>
 </template>
 <!--  -->
