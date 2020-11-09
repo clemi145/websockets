@@ -8,8 +8,11 @@
   },
   "license": "MIT",
   "dependencies": {
+    "@stomp/stompjs": "^6.0.0",
+    "aurelia-animator-css": "^1.0.4",
     "aurelia-bootstrapper": "^2.3.3",
-    "aurelia-animator-css": "^1.0.4"
+    "websocket": "^1.0.32",
+    "ws": "^7.4.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",

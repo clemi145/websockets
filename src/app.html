@@ -1,3 +1,8 @@
 <template>
-  <h1>${message}</h1>
+  <h1>Chat</h1>
+
+  <label for="user">User</label>
+  <input type="text" name="user" id="user" value.bind="user">
+  <button click.delegate="connect()">Connect!</button>
+  <button click.delegate="publishMessage('test1', 'Hello')">Send Hello</button>
 </template>
