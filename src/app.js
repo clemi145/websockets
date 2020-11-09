@@ -8,6 +8,11 @@ export class App {
     this.user = "";
     this.message = "";
 
+    this.messages = [];
+  }
+
+  connect(user) {
+
     this.client;
     this.stompConfig = {
       connectHeaders: {
@@ -38,10 +43,7 @@ export class App {
       return new WebSocket("ws://localhost:8080/chat");
     };
 
-    this.messages = [];
-  }
 
-  connect() {
     this.client.activate();
     this.isLoggedIn = true;
   }

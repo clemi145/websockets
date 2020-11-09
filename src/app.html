@@ -9,7 +9,7 @@
   
   <div class="container mt-4" if.bind="!isLoggedIn">
           <div class="row justify-content-md-center">
-            <form class="col-9" submit.delegate = "connect()">
+            <form class="col-9" submit.delegate = "connect(user)">
                 <div class="form-group">
                     <label for="nameInput">Name</label>
                     <input type="text" class="form-control" id="nameInput" aria-describedby="nameHelp" placeholder="Enter name" value.bind="user">
@@ -25,7 +25,7 @@
     <div class="row justify-content-md-center">
       <div class="col-9 messages-container">
         <div repeat.for="message of messages" class="message-component">
-          <message user="${message.from.user}" timestamp="${message.timestamp.toTimeString().split(' ')[0].substring(0, 5)}" message="${message.text}"></message>
+          <message user="${message.from}" timestamp="${message.timestamp.toTimeString().split(' ')[0].substring(0, 5)}" message="${message.text}"></message>
         </div>
       </div>
     </div>
