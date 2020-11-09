@@ -1,6 +1,7 @@
 <template>
   <require from="./components/send-bar.html"></require>
   <require from="./components/message.html"></require>
+  <require from="./components/my-message.html"></require>
   <require from="./style.css"></require>
   <header>
     <img class="logo" src="./resources/images/websocket.svg"/>
@@ -25,7 +26,12 @@
     <div class="row justify-content-md-center">
       <div class="col-9 messages-container">
         <div repeat.for="message of messages" class="message-component">
-          <message user="${message.from}" timestamp="${message.timestamp.toTimeString().split(' ')[0].substring(0, 5)}" message="${message.text}"></message>
+          <div if.bind="message.from != user">
+            <message user="${message.from}" timestamp="${message.timestamp.substring(11,16)}" message="${message.text}"></message>
+          </div>
+          <div if.bind="message.from == user">
+              <my-message user="${message.from}" timestamp="${message.timestamp.substring(11,16)}" message="${message.text}"></my-message>
+          </div>
         </div>
       </div>
     </div>
@@ -41,7 +47,7 @@
                 <button class="btn btn-primary col-2" click.delegate="publishMessage(user, message)">
                     <i class="far fa-paper-plane"></i>
                 </button>
-            </div>
+              </div>
         </div>
     </div>
         

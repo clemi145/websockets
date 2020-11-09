@@ -53,10 +53,22 @@ header{
     border-radius: 10px 10px 10px 0px;
 }
 
+.my-message {
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 10px 10px 0px 10px;
+}
+
 .message p{
     padding: .6em;
     word-break: break-word;
     font-family: 'Open Sans',sans-serif;
+}
+
+.my-message p {
+  padding: .6em;
+  word-break: break-word;
+  font-family: 'Open Sans', sans-serif;
 }
 
 .timestamp{
@@ -65,6 +77,8 @@ header{
     sans-serif;
     text-align: right;
 }
+
+
 
 .user{
     font-weight: bold;
