@@ -3,8 +3,6 @@ import { bindable } from "aurelia-framework";
 
 export class App {
   constructor() {
-    this.isLoggedIn = false;
-    this.message = "";
 
     this.client;
     this.stompConfig = {
@@ -23,7 +21,6 @@ export class App {
           "/topic/messages",
           (response) => {
             const payload = JSON.parse(response.body);
-            // console.log(payload.from, payload.text, payload.timestamp);
             this.displayMessages();
           }
         );
@@ -35,16 +32,16 @@ export class App {
     this.client.webSocketFactory = function () {
       return new WebSocket("ws://localhost:8080/chat");
     };
+    this.isLoggedIn = false;
+    this.message = "";
 
     this.messages = [];
   }
 
-  connect() {
-    this.user = document.querySelector('#nameInput').value;
-    this.stompConfig.connectHeaders.login = this.user;
-    // console.log(this.user);
-    this.client.activate();
+  connect(user) {
+    this.stompConfig.connectHeaders.login = user;
     this.isLoggedIn = true;
+    this.client.activate();
   }
 
   publishMessage(user, message) {
@@ -56,11 +53,12 @@ export class App {
       const payLoad = { text: message, from: user, timestamp: new Date() };
 
       this.client.publish({
-        destination: "/topic/messages",
+        destination: "/app/chat",
         body: JSON.stringify(payLoad),
       });
       this.messages.push(payLoad);
     }
+    this.message = "";
     return true;
   }
 
