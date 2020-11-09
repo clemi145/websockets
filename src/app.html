@@ -1,3 +1,33 @@
 <template>
-  <h1>${message}</h1>
+  <require from="./components/send-bar.html"></require>
+  <require from="./components/message.html"></require>
+  <require from="./style.css"></require>
+  <header>
+    <img class="logo" src="./resources/images/websocket.svg"/>
+    <h1 class="app-name">websocketchat</h1>
+  </header>
+  
+  <div class="container mt-4" if.bind="!isLoggedIn">
+          <div class="row justify-content-md-center">
+            <form class="col-9" submit.delegate = "login()">
+                <div class="form-group">
+                    <label for="nameInput">Name</label>
+                    <input type="text" class="form-control" id="nameInput" aria-describedby="nameHelp" placeholder="Enter name" value.bind="email">
+                    <small id="nameHelp" class="form-text text-muted">Give yourself a name others will recognize.</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+          </div>
+  </div>
+  
+
+  <div class="container" if.bind="isLoggedIn">
+    <div class="row justify-content-md-center">
+      <div class="col-9">
+        <message user="Clemens" timestamp="19:02" message="Moin, Servus, Moin meine Freunde!"></message>
+      </div>
+    </div>
+  </div>
+  <send-bar if.bind="isLoggedIn"></send-bar>
 </template>
+<!--  -->

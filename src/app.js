@@ -1,3 +1,10 @@
 export class App {
-  message = 'Hello World!';
+  isLoggedIn = false;
+  name = "";
+
+  login() {
+    console.log(name);
+    this.isLoggedIn = true;
+  }
 }
+

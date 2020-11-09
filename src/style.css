@@ -1,0 +1,66 @@
+body{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+login{
+    font-family: 'Open Sans',
+    sans-serif;
+}
+
+
+send-bar{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    transform: translate(0, -100%);
+    font-family: 'Open Sans',
+    sans-serif;
+}
+
+header{
+    height: 100px;
+    width: 100%;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+.logo{
+    width: 60px;
+    margin: 20px 0 20px 10vw;
+}
+
+.app-name {
+    display: inline-block;
+    font-size: 1.6em;
+    margin-left: 1em;
+}
+
+.message{
+    background-color: #ededed;
+    border-radius: 10px 10px 10px 0px;
+}
+
+.message p{
+    padding: .6em;
+    word-break: break-word;
+    font-family: 'Open Sans',sans-serif;
+}
+
+.timestamp{
+    color: #888;
+    font-family: 'Open Sans',
+    sans-serif;
+    text-align: right;
+}
+
+.user{
+    font-weight: bold;
+    font-family: 'Open Sans',
+    sans-serif;
+}
