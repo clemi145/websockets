@@ -9,10 +9,10 @@
   
   <div class="container mt-4" if.bind="!isLoggedIn">
           <div class="row justify-content-md-center">
-            <form class="col-9" submit.delegate = "login()">
+            <form class="col-9" submit.delegate = "connect()">
                 <div class="form-group">
                     <label for="nameInput">Name</label>
-                    <input type="text" class="form-control" id="nameInput" aria-describedby="nameHelp" placeholder="Enter name" value.bind="email">
+                    <input type="text" class="form-control" id="nameInput" aria-describedby="nameHelp" placeholder="Enter name" value.bind="user">
                     <small id="nameHelp" class="form-text text-muted">Give yourself a name others will recognize.</small>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -28,6 +28,18 @@
       </div>
     </div>
   </div>
-  <send-bar if.bind="isLoggedIn"></send-bar>
+
+  <div class="container mt-4 send-bar" if.bind="isLoggedIn">
+        <div class="row justify-content-md-center">
+            <div class="row col-9 justify-content-between">
+                <div class="form-group row mb-0 col-11">
+                    <input type="text" class="form-control" id="textinput" placeholder="Type your message...">
+                </div>
+                <button class="btn btn-primary col-1" click.delegate="publishMessage('test1', 'Hello')">
+                    <i class="far fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 </template>
 <!--  -->

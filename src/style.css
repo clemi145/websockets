@@ -12,7 +12,7 @@ login{
 }
 
 
-send-bar{
+.send-bar{
     position: absolute;
     bottom: 0;
     left: 0;
