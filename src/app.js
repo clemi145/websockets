@@ -1,15 +1,15 @@
 import { Client } from "@stomp/stompjs";
 
 export class App {
-  user = "";
   constructor() {
 
     this.user = "";
+    this.message = "";
 
     this.client;
     this.stompConfig = {
       connectHeaders: {
-        login: App.user,
+        login: this.user,
         passcode: "",
       },
       brokerUrl: "ws://localhost:8080/chat",

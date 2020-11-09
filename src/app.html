@@ -3,7 +3,7 @@
 
   <label for="user">User</label>
   <input type="text" name="user" id="user" value.bind="user">
-  <textarea name="inputArea" id="area" cols="30" rows="10" value.bind="textToSend"></textarea>
+  <textarea name="inputArea" id="area" cols="30" rows="10" value.bind="message"></textarea>
   <button click.delegate="connect()">Connect!</button>
-  <button click.delegate="publishMessage({user}, {textToSend})">Send Message</button>
+  <button click.delegate="publishMessage(user, message)">Send Message</button>
 </template>
