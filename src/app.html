@@ -24,18 +24,20 @@
   <div class="container" if.bind="isLoggedIn">
     <div class="row justify-content-md-center">
       <div class="col-9">
-        <message user="Clemens" timestamp="19:02" message="Moin, Servus, Moin meine Freunde!"></message>
+        <div repeat.for="message of messages">
+          <message user="${message.from.user}" timestamp="${message.timestamp}" message="${message.text}"></message>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="container mt-4 send-bar" if.bind="isLoggedIn">
+  <div class="container send-bar col-12" if.bind="isLoggedIn">
         <div class="row justify-content-md-center">
-            <div class="row col-9 justify-content-between">
-                <div class="form-group row mb-0 col-11">
-                    <input type="text" class="form-control" id="textinput" placeholder="Type your message...">
+            <div class="col-8 row">
+                <div class="form-group col-9 mb-0">
+                    <input type="text" class="form-control" id="textinput" placeholder="Type your message..." value.bind="textToSend">
                 </div>
-                <button class="btn btn-primary col-1" click.delegate="publishMessage('test1', 'Hello')">
+                <button class="btn btn-primary col-2" click.delegate="publishMessage({user}, 'wdwadwad')">
                     <i class="far fa-paper-plane"></i>
                 </button>
             </div>
