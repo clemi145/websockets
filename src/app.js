@@ -14,8 +14,8 @@ export class App {
         console.log("[STOMP] " + str);
       },
       reconnectDelay: 200,
-
       onConnect: (frame) => {
+        this.publishMessage("Admin", this.user+" ist beigetreten");
         const subscription = this.client.subscribe(
           "/topic/messages",
           (response) => {
