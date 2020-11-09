@@ -1,5 +1,4 @@
 import { Client } from "@stomp/stompjs";
-import { bindable } from "aurelia-framework";
 
 export class App {
   constructor() {
@@ -21,6 +20,7 @@ export class App {
           "/topic/messages",
           (response) => {
             const payload = JSON.parse(response.body);
+            this.messages.push(payload);
             this.displayMessages();
           }
         );
@@ -56,7 +56,6 @@ export class App {
         destination: "/app/chat",
         body: JSON.stringify(payLoad),
       });
-      this.messages.push(payLoad);
     }
     this.message = "";
     return true;
